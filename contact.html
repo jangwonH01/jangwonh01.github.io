@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="여행/요리 관련 문의, 협업 제안은 이메일 또는 문의 양식으로 연락주세요.">
+    <meta name="keywords" content="여행 블로그, 요리 레시피, 세계여행, 홈쿠킹, 맛집, 여행 팁, JUHWANDAD">
+    <meta name="author" content="여행하는 요리사 JUHWANDAD">
+    <link rel="canonical" href="https://jangwonh01.github.io/contact.html">
+    <meta property="og:title" content="문의하기 - 여행하는 요리사 JUHWANDAD">
+    <meta property="og:description" content="여행/요리 관련 문의, 협업 제안은 이메일 또는 문의 양식으로 연락주세요.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jangwonh01.github.io/contact.html">
+    <title>문의하기 - 여행하는 요리사 JUHWANDAD</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta name="google-adsense-account" content="ca-pub-6724882635011810">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6724882635011810" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">&#9992;</span>
+                <span class="logo-text">여행하는 요리사 JUHWANDAD</span>
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html" class="nav-link">홈</a>
+                <a href="travel.html" class="nav-link">여행</a>
+                <a href="food.html" class="nav-link">요리</a>
+                <a href="about.html" class="nav-link">소개</a>
+                <a href="contact.html" class="nav-link active">문의</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="page-hero contact-hero">
+            <h1>문의하기</h1>
+            <p>궁금한 점이나 제안이 있으시면 편하게 연락해주세요</p>
+        </div>
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h2>메시지 보내기</h2>
+                    <p>아래 양식을 작성하면 메일 앱으로 연결됩니다.</p>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="contact-name">이름 *</label>
+                            <input type="text" id="contact-name" required placeholder="이름을 입력하세요">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">이메일 *</label>
+                            <input type="email" id="contact-email" required placeholder="example@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject">문의 유형</label>
+                            <select id="contact-subject">
+                                <option value="일반 문의">일반 문의</option>
+                                <option value="여행 관련">여행 관련</option>
+                                <option value="레시피 관련">레시피 관련</option>
+                                <option value="협업/제휴">협업/제휴</option>
+                                <option value="기타">기타</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">메시지 *</label>
+                            <textarea id="contact-message" required placeholder="문의 내용을 자세히 적어주세요"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn" id="contact-submit">보내기</button>
+                        <div id="contact-form-message" class="form-message"></div>
+                    </form>
+                </div>
+                <div class="contact-card">
+                    <h2>연락처 정보</h2>
+                    <p>다양한 채널로 소통하고 있습니다.</p>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">&#9993;</div>
+                        <div class="contact-info-text">
+                            <h4>이메일</h4>
+                            <p><a href="mailto:jang1red@naver.com">jang1red@naver.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">&#9998;</div>
+                        <div class="contact-info-text">
+                            <h4>블로그 운영 시간</h4>
+                            <p>월~금 10:00 - 18:00<br>문의 답변은 24시간 이내</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">&#127758;</div>
+                        <div class="contact-info-text">
+                            <h4>협업 문의</h4>
+                            <p>여행/요리 관련 브랜드 협업, 원고 기고, 영상 출연 등 다양한 협업을 환영합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>여행하는 요리사 JUHWANDAD</h4>
+                    <p>세계를 여행하고, 그 맛을 요리합니다.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>카테고리</h4>
+                    <ul>
+                        <li><a href="travel.html">여행 블로그</a></li>
+                        <li><a href="food.html">요리 레시피</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>정보</h4>
+                    <ul>
+                        <li><a href="about.html">블로거 소개</a></li>
+                        <li><a href="contact.html">문의하기</a></li>
+                        <li><a href="privacy.html">개인정보처리방침</a></li>
+                        <li><a href="privacy.html#site-policy">운영정책/광고고지</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 여행하는 요리사 JUHWANDAD. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
