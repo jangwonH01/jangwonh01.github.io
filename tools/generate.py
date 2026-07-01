@@ -314,7 +314,7 @@ def post_page(p, idx, siblings):
         <div class="container post-page">
             <nav class="breadcrumb"><a href="../index.html">홈</a> &rsaquo; <a href="{list_href}">{cat_name}</a> &rsaquo; <span>{html.escape(p['title'])}</span></nav>
             {p['html']}
-            {comments}{pn}{related}
+            {pn}{related}{comments}
         </div>
     </main>'''
     out += footer("../")
