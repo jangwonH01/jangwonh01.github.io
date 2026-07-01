@@ -326,6 +326,156 @@ for c in active_cats:
     for i, p in enumerate(bycat[c["key"]]):
         post_page(p, i, bycat[c["key"]])
 
+# ---------- static pages (about / privacy / contact) ----------
+def build_page(fname, title, desc, active, body):
+    out = head(f"{title} - {SITE_NAME}", desc, BASE + fname, "")
+    out += nav(active, "")
+    out += body
+    out += footer("")
+    write(fname, out)
+
+ABOUT_BODY = '''
+    <main class="main-content">
+        <div class="container">
+                <div class="about-card">
+                    <h1>여행하는 요리사 JUHWANDAD</h1>
+                    <p class="about-tagline">세계를 여행하고, 그 맛을 재현하고, 세상을 읽습니다.</p>
+                    <div class="about-body">
+                        <p>안녕하세요! 여행과 요리를 사랑하는 블로거입니다. 새로운 도시를 걷고, 현지의 맛을 경험하고, 그 레시피를 집에서 재현하는 것이 저의 가장 큰 즐거움입니다.</p>
+                        <p>10년간 20개국 이상을 여행하며, 각 나라의 음식 문화를 직접 체험했습니다. 교토의 골목길에서 만난 말차의 향기, 바르셀로나 시장에서 맛본 하몬의 감칠맛, 치앙마이 야시장의 카오소이 한 그릇까지 - 모든 여행은 미각의 기억으로 남아있습니다.</p>
+                        <p>이 블로그에서는 제가 직접 다녀온 여행지의 솔직한 후기와, 여행에서 영감받은 레시피를 공유합니다. 화려한 레스토랑보다는 현지인이 사랑하는 소박한 맛집을, 복잡한 레시피보다는 집에서 쉽게 따라 할 수 있는 요리를 소개해드립니다.</p>
+                        <p>여기에 더해, <strong>부동산·금융·정책 등 경제 이슈에 대한 개인적인 견해</strong>를 담은 <strong>경제 칼럼</strong>도 연재합니다. 여행과 요리로 일상을 즐기는 한편, 세상 돌아가는 흐름도 함께 짚어보려 합니다.</p>
+                        <h3>이 블로그에서 만날 수 있는 것들</h3>
+                        <ul>
+                            <li>세계 각국의 여행 후기와 현지 팁</li>
+                            <li>여행지에서 영감받은 홈쿠킹 레시피</li>
+                            <li>초보자도 따라 할 수 있는 단계별 요리법</li>
+                            <li>부동산·금융·정책을 다루는 경제 칼럼</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="about-card">
+                    <h2>경제 칼럼에 대하여</h2>
+                    <div class="about-body">
+                        <p>경제 칼럼은 부동산·금융·정책 등 우리 삶에 직접 영향을 주는 이슈를 다룹니다. 단순한 뉴스 요약이 아니라, 시장의 흐름을 저 나름의 시각으로 해석하고 앞으로를 전망하는 글입니다. 2주에 한 번을 목표로 꾸준히 연재하려 합니다.</p>
+                        <p>다만 모든 칼럼은 <strong>필자 개인의 견해와 전망</strong>이며, 특정 투자나 매매를 권유하지 않습니다. 시장은 예측과 다르게 움직일 수 있으니, 투자 판단은 반드시 본인 책임하에 최신 정보를 확인해 결정하시기 바랍니다.</p>
+                        <p><a href="column.html">경제 칼럼 전체 보기 &rarr;</a></p>
+                    </div>
+                </div>
+        </div>
+    </main>'''
+
+PRIVACY_BODY = '''
+    <main class="main-content">
+        <div class="container">
+                <div class="about-card" id="privacy">
+                    <h1>개인정보처리방침</h1>
+                    <div class="about-body">
+                        <p>본 웹사이트는 방문자의 개인정보를 소중히 여기며, 관련 법률을 준수합니다.</p>
+                        <h3>수집하는 정보</h3>
+                        <p>본 웹사이트는 Google Analytics 및 Google AdSense를 통해 비개인적인 방문 데이터(페이지 조회수, 체류 시간, 기기 정보 등)를 수집할 수 있습니다. 이 데이터는 웹사이트 개선 및 맞춤형 광고 제공을 위해 사용됩니다.</p>
+                        <h3>쿠키 사용</h3>
+                        <p>본 웹사이트는 서비스 제공 및 광고 표시를 위해 쿠키를 사용합니다. 브라우저 설정에서 쿠키 사용을 관리할 수 있습니다.</p>
+                        <h3>댓글 기능</h3>
+                        <p>본 사이트의 댓글은 Google Firebase(Firestore)에 저장되며, 작성 시 입력한 이름과 내용이 공개적으로 표시됩니다. 개인정보(전화번호·주소 등)는 댓글에 남기지 마세요.</p>
+                        <h3>Google AdSense 및 제3자 광고</h3>
+                        <p>Google을 포함한 제3자 광고 사업자는 쿠키를 사용하여 사용자의 이전 방문 기록에 기반한 광고를 게재합니다. Google이 광고 쿠키를 사용함으로써 사용자에게 관심 기반 광고를 제공할 수 있습니다. 사용자는 <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Google 광고 설정</a>에서 맞춤 광고를 비활성화할 수 있으며, <a href="https://www.aboutads.info" target="_blank" rel="noopener">www.aboutads.info</a>에서 제3자 쿠키 사용을 거부할 수 있습니다.</p>
+                        <h3>문의</h3>
+                        <p>개인정보처리방침에 관한 문의사항이 있으시면 <a href="contact.html">문의하기</a> 페이지 또는 이메일(jang1red@naver.com)로 연락해주세요.</p>
+                        <p><em>최종 수정일: 2026년 7월 2일</em></p>
+                    </div>
+                </div>
+
+                <div class="about-card" id="site-policy">
+                    <h2>운영정책 · 광고 고지 · 이용안내</h2>
+                    <div class="about-body">
+                        <h3>광고 및 제휴 고지</h3>
+                        <p>본 사이트는 운영비 충당을 위해 Google AdSense 등 광고를 포함할 수 있습니다. 일부 링크는 제휴 링크일 수 있으며, 해당 링크를 통한 구매 시 일정 수수료를 받을 수 있습니다. 단, 콘텐츠의 평가와 의견은 독립적으로 작성됩니다.</p>
+                        <h3>콘텐츠 이용 안내</h3>
+                        <p>본 사이트의 글/이미지/코드는 저작권 보호를 받습니다. 사전 동의 없는 무단 복제, 재배포, 상업적 이용을 금지합니다. 인용 시에는 출처를 명시해 주세요.</p>
+                        <h3>면책 조항</h3>
+                        <p>여행·요리·경제·생활 정보는 개인 경험과 조사 기반이며, 정확성을 위해 노력하지만 절대적 완전성을 보장하지 않습니다. 특히 부동산·금융·정책 등 경제 칼럼은 필자 개인의 견해이며 투자 권유가 아닙니다. 투자·건강·법률 등 의사결정은 반드시 본인 판단과 전문가 자문을 병행해 주세요.</p>
+                        <h3>문의 채널</h3>
+                        <p>정책 및 콘텐츠 관련 문의는 <a href="contact.html">문의하기</a> 페이지 또는 이메일(jang1red@naver.com)로 연락해 주세요.</p>
+                        <p><em>최종 수정일: 2026년 7월 2일</em></p>
+                    </div>
+                </div>
+        </div>
+    </main>'''
+
+CONTACT_BODY = '''
+    <main class="main-content">
+        <div class="page-hero contact-hero">
+            <h1>문의하기</h1>
+            <p>궁금한 점이나 제안이 있으시면 편하게 연락해주세요</p>
+        </div>
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h2>메시지 보내기</h2>
+                    <p>아래 양식을 작성하면 메일 앱으로 연결됩니다.</p>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="contact-name">이름 *</label>
+                            <input type="text" id="contact-name" required placeholder="이름을 입력하세요">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">이메일 *</label>
+                            <input type="email" id="contact-email" required placeholder="example@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject">문의 유형</label>
+                            <select id="contact-subject">
+                                <option value="일반 문의">일반 문의</option>
+                                <option value="여행 관련">여행 관련</option>
+                                <option value="레시피 관련">레시피 관련</option>
+                                <option value="경제 칼럼 관련">경제 칼럼 관련</option>
+                                <option value="협업/제휴">협업/제휴</option>
+                                <option value="기타">기타</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">메시지 *</label>
+                            <textarea id="contact-message" required placeholder="문의 내용을 자세히 적어주세요"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn" id="contact-submit">보내기</button>
+                        <div id="contact-form-message" class="form-message"></div>
+                    </form>
+                </div>
+                <div class="contact-card">
+                    <h2>연락처 정보</h2>
+                    <p>다양한 채널로 소통하고 있습니다.</p>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">&#9993;</div>
+                        <div class="contact-info-text">
+                            <h4>이메일</h4>
+                            <p><a href="mailto:jang1red@naver.com">jang1red@naver.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">&#9998;</div>
+                        <div class="contact-info-text">
+                            <h4>블로그 운영 시간</h4>
+                            <p>월~금 10:00 - 18:00<br>문의 답변은 24시간 이내</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">&#127758;</div>
+                        <div class="contact-info-text">
+                            <h4>협업 문의</h4>
+                            <p>여행/요리/경제 관련 브랜드 협업, 원고 기고, 영상 출연 등 다양한 협업을 환영합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>'''
+
+build_page("about.html", "소개", "여행하는 요리사 JUHWANDAD 소개 — 여행·요리 이야기와 부동산·금융·정책 경제 칼럼을 연재합니다.", "about", ABOUT_BODY)
+build_page("privacy.html", "개인정보처리방침", "개인정보처리방침, 쿠키·댓글·Google AdSense 광고 고지 및 운영정책 안내.", "", PRIVACY_BODY)
+build_page("contact.html", "문의하기", "여행·요리·경제 칼럼 관련 문의와 협업 제안은 이메일 또는 문의 양식으로 연락주세요.", "contact", CONTACT_BODY)
+
 # ---------- favicon.svg ----------
 write("favicon.svg", '''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <rect width="64" height="64" rx="14" fill="#e63946"/>
