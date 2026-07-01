@@ -40,3 +40,10 @@
 - 루트의 `google*.html`(Search Console 인증 파일)은 **삭제 금지**
 - 실제 사진이 있으면 `figure`의 `src`를 교체(스톡보다 원본 사진이 품질·통과율에 유리)
 - 같은 사진을 여러 장 중복 삽입하지 말 것(저품질 신호)
+
+## 카테고리 (여행 / 요리 / 경제 칼럼)
+- 글의 카테고리는 **파일명 접두사**로 정해진다: `travel-*`=여행, `food-*`=요리, `column-*`=경제 칼럼.
+- 경제 칼럼(부동산·금융·정책) 새 글: `posts/column-2.html`에 `<article class="post" id="column-2">` 블록 작성 → `python3 tools/generate.py`.
+- 카드 썸네일 이미지는 `style.css`에 `.column-img-2 { background: url('...') center/cover no-repeat; }` 형식으로 클래스를 추가(파일명 번호와 일치).
+- **YMYL 주의**: 부동산·금융·정책 글은 단정적 투자 권유를 피하고, 정보+견해+면책 문구(`<p class="post-disclaimer">…</p>`)를 붙인다.
+- 새 카테고리 자체를 추가하려면 `tools/generate.py` 상단 `CATS` 리스트에 항목을 넣고, `.<key>-hero`/`.badge-<key>` CSS를 추가한다.

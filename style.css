@@ -1263,3 +1263,9 @@ a.card { cursor: pointer; color: inherit; }
 .travel-img-13 { background: url('https://images.unsplash.com/photo-1599172806427-975cc19da9c7?w=800&q=80') center/cover no-repeat; }
 .food-img-12 { background: url('https://images.unsplash.com/photo-1562749606-0a9eb5a8a0f3?w=800&q=80') center/cover no-repeat; }
 .food-img-13 { background: url('https://images.unsplash.com/photo-1555126634-323283e090fa?w=800&q=80') center/cover no-repeat; }
+
+/* ===== 경제 칼럼 category ===== */
+.badge-column { background: #e8f0fe; color: #1a53c0; }
+.column-hero { background: linear-gradient(rgba(18,28,54,0.68), rgba(28,42,78,0.72)), url('https://images.unsplash.com/photo-1626846563711-f2d01a141b77?w=1400&q=80') center/cover no-repeat; }
+.column-img-1 { background: url('https://images.unsplash.com/photo-1722487631997-cf1e0f92c2c4?w=800&q=80') center/cover no-repeat; }
+.post-disclaimer { margin-top: 28px; padding: 14px 18px; background: #f8f9fa; border-left: 3px solid #c9ccd1; border-radius: 8px; font-size: 13px; color: #777; line-height: 1.7; }
