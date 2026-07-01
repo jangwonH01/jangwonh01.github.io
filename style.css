@@ -1253,3 +1253,7 @@ a.card { cursor: pointer; color: inherit; }
 .post-figure { margin: 24px 0; }
 .post-figure img { width: 100%; height: auto; border-radius: 12px; display: block; }
 .post-figure figcaption { margin-top: 8px; font-size: 13px; color: #888; text-align: center; }
+
+/* ===== related posts ===== */
+.related { margin: 8px 0 40px; }
+.related-title { font-size: 20px; margin-bottom: 18px; padding-top: 24px; border-top: 1px solid #eee; }
