@@ -1248,3 +1248,8 @@ a.card { cursor: pointer; color: inherit; }
     .post-nav a { min-width: 0; text-align: left; }
     .post-nav-next { text-align: left; }
 }
+
+/* ===== in-content figures ===== */
+.post-figure { margin: 24px 0; }
+.post-figure img { width: 100%; height: auto; border-radius: 12px; display: block; }
+.post-figure figcaption { margin-top: 8px; font-size: 13px; color: #888; text-align: center; }
