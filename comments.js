@@ -86,6 +86,7 @@ async function init() {
     btn.disabled = true; btn.textContent = "등록 중…";
     try {
       await addDoc(collection(db, "comments"), { postId, name, text, createdAt: serverTimestamp() });
+      document.getElementById("c-name").value = "";
       document.getElementById("c-text").value = "";
       msg.textContent = "댓글이 등록되었습니다."; msg.className = "c-msg ok";
       await load();
