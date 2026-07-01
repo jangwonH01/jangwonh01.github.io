@@ -1273,3 +1273,31 @@ a.card { cursor: pointer; color: inherit; }
 .column-img-3 { background: url('https://images.unsplash.com/photo-1562408590-e32931084e23?w=800&q=80') center/cover no-repeat; }
 .comments { margin: 8px 0 40px; }
 .comments .related-title { margin-bottom: 18px; }
+
+/* ===== comments (Firebase) ===== */
+.comments { margin: 8px 0 48px; padding-top: 24px; border-top: 1px solid #eee; }
+.comment-form { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+.comment-form .c-name { max-width: 220px; }
+.comment-form input, .comment-form textarea {
+    padding: 12px 14px; border: 1px solid #ddd; border-radius: 10px;
+    font-family: inherit; font-size: 15px; background: #fff; color: #333;
+}
+.comment-form textarea { min-height: 90px; resize: vertical; }
+.comment-form input:focus, .comment-form textarea:focus { outline: none; border-color: #e63946; }
+.c-actions { text-align: right; }
+.c-submit {
+    padding: 10px 22px; background: #e63946; color: #fff; border: none;
+    border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;
+}
+.c-submit:hover { background: #d62839; }
+.c-submit:disabled { opacity: 0.6; cursor: default; }
+.c-msg { font-size: 13px; margin: 0; }
+.c-msg.ok { color: #1a8f4c; }
+.c-msg.err { color: #e63946; }
+.comment-list { display: flex; flex-direction: column; gap: 16px; }
+.comment { padding: 14px 16px; background: #f8f9fa; border-radius: 12px; }
+.comment-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+.comment-name { font-weight: 700; font-size: 14px; color: #1a1a2e; }
+.comment-date { font-size: 12px; color: #aaa; }
+.comment-text { margin: 0; font-size: 15px; line-height: 1.7; white-space: pre-wrap; }
+.c-empty { color: #aaa; font-size: 14px; }

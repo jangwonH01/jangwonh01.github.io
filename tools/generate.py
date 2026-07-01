@@ -10,26 +10,22 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root,
 BASE = "https://jangwonh01.github.io/"
 SITE_NAME = "여행하는 요리사 JUHWANDAD"
 LOGO = BASE + "favicon.svg"
-DISQUS_SHORTNAME = ""  # ← disqus.com 가입 후 받은 shortname 입력하면 모든 글에 댓글 활성화
 
-DISQUS_TPL = '''
-            <section class="comments">
-                <h2 class="related-title">댓글</h2>
-                <div id="disqus_thread"></div>
-                <script>
-                var disqus_config = function () {
-                    this.page.url = '__URL__';
-                    this.page.identifier = '__ID__';
-                };
-                (function() {
-                    var d = document, s = d.createElement('script');
-                    s.src = 'https://__SHORT__.disqus.com/embed.js';
-                    s.setAttribute('data-timestamp', +new Date());
-                    (d.head || d.body).appendChild(s);
-                })();
-                </script>
-                <noscript>댓글을 보려면 JavaScript를 활성화해 주세요.</noscript>
-            </section>'''
+# Firebase-backed comments. The section stays hidden until comments.js confirms
+# a valid Firebase config (edit firebase-config.js), then it reveals + loads.
+def comments_html(post_id, prefix):
+    return f'''
+            <section class="comments" id="comments" data-post-id="{post_id}" hidden>
+                <h2 class="related-title">댓글 <span id="c-count"></span></h2>
+                <form id="comment-form" class="comment-form">
+                    <input id="c-name" class="c-name" maxlength="20" placeholder="이름" autocomplete="name" required>
+                    <textarea id="c-text" class="c-text" maxlength="500" placeholder="댓글을 남겨주세요" required></textarea>
+                    <div class="c-actions"><button type="submit" class="c-submit">댓글 남기기</button></div>
+                    <p id="c-msg" class="c-msg"></p>
+                </form>
+                <div id="comment-list" class="comment-list"></div>
+            </section>
+            <script type="module" src="{prefix}comments.js"></script>'''
 
 # category config — id prefix is the category key (e.g. travel-1, food-3, column-2)
 CATS = [
@@ -308,7 +304,7 @@ def post_page(p, idx, siblings):
                 </div>
             </section>''' if rel else ''
 
-    comments = DISQUS_TPL.replace('__URL__', url).replace('__ID__', p['id']).replace('__SHORT__', DISQUS_SHORTNAME) if DISQUS_SHORTNAME else ''
+    comments = comments_html(p['id'], "../")
 
     out = head(f"{p['title']} - {SITE_NAME}", desc, url, "../", og, jsonld=ld)
     out += nav(p['cat'], "../")

@@ -109,6 +109,17 @@
                     </a>
                 </div>
             </section>
+            <section class="comments" id="comments" data-post-id="travel-5" hidden>
+                <h2 class="related-title">댓글 <span id="c-count"></span></h2>
+                <form id="comment-form" class="comment-form">
+                    <input id="c-name" class="c-name" maxlength="20" placeholder="이름" autocomplete="name" required>
+                    <textarea id="c-text" class="c-text" maxlength="500" placeholder="댓글을 남겨주세요" required></textarea>
+                    <div class="c-actions"><button type="submit" class="c-submit">댓글 남기기</button></div>
+                    <p id="c-msg" class="c-msg"></p>
+                </form>
+                <div id="comment-list" class="comment-list"></div>
+            </section>
+            <script type="module" src="../comments.js"></script>
         </div>
     </main>
     <footer class="site-footer">
