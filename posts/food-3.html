@@ -96,6 +96,17 @@
                     </div>
                 </article>
             <div class="post-nav"><a class="post-nav-prev" href="food-2.html">&larr; 직접 만든 생면 파스타의 감동</a><a class="post-nav-list" href="../food.html">요리 목록</a><a class="post-nav-next" href="food-4.html">집에서 만드는 정통 일본식 라멘 &rarr;</a></div>
+            <section class="comments" id="comments" data-post-id="food-3" hidden>
+                <h2 class="related-title">댓글 <span id="c-count"></span></h2>
+                <form id="comment-form" class="comment-form">
+                    <input id="c-name" class="c-name" maxlength="20" placeholder="이름" autocomplete="name" required>
+                    <textarea id="c-text" class="c-text" maxlength="500" placeholder="댓글을 남겨주세요" required></textarea>
+                    <div class="c-actions"><button type="submit" class="c-submit">댓글 남기기</button></div>
+                    <p id="c-msg" class="c-msg"></p>
+                </form>
+                <div id="comment-list" class="comment-list"></div>
+            </section>
+            <script type="module" src="../comments.js"></script>
             <section class="related">
                 <h2 class="related-title">관련 글</h2>
                 <div class="card-grid">
@@ -125,17 +136,6 @@
                     </a>
                 </div>
             </section>
-            <section class="comments" id="comments" data-post-id="food-3" hidden>
-                <h2 class="related-title">댓글 <span id="c-count"></span></h2>
-                <form id="comment-form" class="comment-form">
-                    <input id="c-name" class="c-name" maxlength="20" placeholder="이름" autocomplete="name" required>
-                    <textarea id="c-text" class="c-text" maxlength="500" placeholder="댓글을 남겨주세요" required></textarea>
-                    <div class="c-actions"><button type="submit" class="c-submit">댓글 남기기</button></div>
-                    <p id="c-msg" class="c-msg"></p>
-                </form>
-                <div id="comment-list" class="comment-list"></div>
-            </section>
-            <script type="module" src="../comments.js"></script>
         </div>
     </main>
     <footer class="site-footer">

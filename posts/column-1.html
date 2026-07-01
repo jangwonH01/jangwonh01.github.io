@@ -84,6 +84,17 @@
                     </div>
                 </article>
             <div class="post-nav"><a class="post-nav-prev" href="column-2.html">&larr; 부동산 규제의 역설, 집값은 어디로 가는가</a><a class="post-nav-list" href="../column.html">경제 칼럼 목록</a><span></span></div>
+            <section class="comments" id="comments" data-post-id="column-1" hidden>
+                <h2 class="related-title">댓글 <span id="c-count"></span></h2>
+                <form id="comment-form" class="comment-form">
+                    <input id="c-name" class="c-name" maxlength="20" placeholder="이름" autocomplete="name" required>
+                    <textarea id="c-text" class="c-text" maxlength="500" placeholder="댓글을 남겨주세요" required></textarea>
+                    <div class="c-actions"><button type="submit" class="c-submit">댓글 남기기</button></div>
+                    <p id="c-msg" class="c-msg"></p>
+                </form>
+                <div id="comment-list" class="comment-list"></div>
+            </section>
+            <script type="module" src="../comments.js"></script>
             <section class="related">
                 <h2 class="related-title">관련 글</h2>
                 <div class="card-grid">
@@ -105,17 +116,6 @@
                     </a>
                 </div>
             </section>
-            <section class="comments" id="comments" data-post-id="column-1" hidden>
-                <h2 class="related-title">댓글 <span id="c-count"></span></h2>
-                <form id="comment-form" class="comment-form">
-                    <input id="c-name" class="c-name" maxlength="20" placeholder="이름" autocomplete="name" required>
-                    <textarea id="c-text" class="c-text" maxlength="500" placeholder="댓글을 남겨주세요" required></textarea>
-                    <div class="c-actions"><button type="submit" class="c-submit">댓글 남기기</button></div>
-                    <p id="c-msg" class="c-msg"></p>
-                </form>
-                <div id="comment-list" class="comment-list"></div>
-            </section>
-            <script type="module" src="../comments.js"></script>
         </div>
     </main>
     <footer class="site-footer">
