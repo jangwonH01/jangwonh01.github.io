@@ -24,6 +24,7 @@ def comments_html(post_id, prefix):
                     <p id="c-msg" class="c-msg"></p>
                 </form>
                 <div id="comment-list" class="comment-list"></div>
+                <div id="comment-pagination" class="comment-pagination"></div>
             </section>
             <script type="module" src="{prefix}comments.js"></script>'''
 
