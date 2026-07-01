@@ -1257,3 +1257,9 @@ a.card { cursor: pointer; color: inherit; }
 /* ===== related posts ===== */
 .related { margin: 8px 0 40px; }
 .related-title { font-size: 20px; margin-bottom: 18px; padding-top: 24px; border-top: 1px solid #eee; }
+
+/* ===== new posts (2026-07) images ===== */
+.travel-img-12 { background: url('https://images.unsplash.com/photo-1669302849400-5cfdf29ff32b?w=800&q=80') center/cover no-repeat; }
+.travel-img-13 { background: url('https://images.unsplash.com/photo-1599172806427-975cc19da9c7?w=800&q=80') center/cover no-repeat; }
+.food-img-12 { background: url('https://images.unsplash.com/photo-1562749606-0a9eb5a8a0f3?w=800&q=80') center/cover no-repeat; }
+.food-img-13 { background: url('https://images.unsplash.com/photo-1555126634-323283e090fa?w=800&q=80') center/cover no-repeat; }

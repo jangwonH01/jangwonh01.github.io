@@ -42,9 +42,10 @@ for f in glob.glob(os.path.join(REPO, "posts", "*.html")):
                       excerpt=excerpt, cat=cat, html=a, is_recipe=is_recipe,
                       ingredients=ingredients, steps=steps))
 
-posts.sort(key=lambda p: (p['cat'], num(p['id'])))
-travel = [p for p in posts if p['cat'] == 'travel']
-food = [p for p in posts if p['cat'] == 'food']
+# newest first (by date), so new posts lead the home and lists
+travel = sorted([p for p in posts if p['cat'] == 'travel'], key=lambda p: p['iso'], reverse=True)
+food = sorted([p for p in posts if p['cat'] == 'food'], key=lambda p: p['iso'], reverse=True)
+posts = travel + food
 
 def head(title, desc, canonical, prefix, og_image=None, jsonld=None):
     img_tag = f'\n    <meta property="og:image" content="{og_image}">' if og_image else ''
@@ -324,5 +325,17 @@ nf += '''
     </main>'''
 nf += footer("")
 write("404.html", nf)
+
+# ---------- sitemap.xml ----------
+static = [(BASE, "1.0"), (BASE+"travel.html", "0.8"), (BASE+"food.html", "0.8"),
+          (BASE+"about.html", "0.5"), (BASE+"privacy.html", "0.5"), (BASE+"contact.html", "0.5")]
+newest = max((p['iso'] for p in posts), default="2026-07-01")
+sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+for u, pr in static:
+    sm += f'  <url>\n    <loc>{u}</loc>\n    <lastmod>{newest}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>{pr}</priority>\n  </url>\n'
+for p in posts:
+    sm += f'  <url>\n    <loc>{BASE}posts/{p["id"]}.html</loc>\n    <lastmod>{p["iso"]}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>\n'
+sm += '</urlset>\n'
+write("sitemap.xml", sm)
 
 print(f"DONE: JSON-LD + related + favicon + 404 applied to {len(posts)} posts and all pages.")
