@@ -10,6 +10,26 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root,
 BASE = "https://jangwonh01.github.io/"
 SITE_NAME = "여행하는 요리사 JUHWANDAD"
 LOGO = BASE + "favicon.svg"
+DISQUS_SHORTNAME = ""  # ← disqus.com 가입 후 받은 shortname 입력하면 모든 글에 댓글 활성화
+
+DISQUS_TPL = '''
+            <section class="comments">
+                <h2 class="related-title">댓글</h2>
+                <div id="disqus_thread"></div>
+                <script>
+                var disqus_config = function () {
+                    this.page.url = '__URL__';
+                    this.page.identifier = '__ID__';
+                };
+                (function() {
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://__SHORT__.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+                </script>
+                <noscript>댓글을 보려면 JavaScript를 활성화해 주세요.</noscript>
+            </section>'''
 
 # category config — id prefix is the category key (e.g. travel-1, food-3, column-2)
 CATS = [
@@ -288,6 +308,8 @@ def post_page(p, idx, siblings):
                 </div>
             </section>''' if rel else ''
 
+    comments = DISQUS_TPL.replace('__URL__', url).replace('__ID__', p['id']).replace('__SHORT__', DISQUS_SHORTNAME) if DISQUS_SHORTNAME else ''
+
     out = head(f"{p['title']} - {SITE_NAME}", desc, url, "../", og, jsonld=ld)
     out += nav(p['cat'], "../")
     out += f'''
@@ -295,7 +317,7 @@ def post_page(p, idx, siblings):
         <div class="container post-page">
             <nav class="breadcrumb"><a href="../index.html">홈</a> &rsaquo; <a href="{list_href}">{cat_name}</a> &rsaquo; <span>{html.escape(p['title'])}</span></nav>
             {p['html']}
-            {pn}{related}
+            {pn}{related}{comments}
         </div>
     </main>'''
     out += footer("../")

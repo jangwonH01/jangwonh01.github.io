@@ -1271,3 +1271,5 @@ a.card { cursor: pointer; color: inherit; }
 .post-disclaimer { margin-top: 28px; padding: 14px 18px; background: #f8f9fa; border-left: 3px solid #c9ccd1; border-radius: 8px; font-size: 13px; color: #777; line-height: 1.7; }
 .column-img-2 { background: url('https://images.unsplash.com/photo-1602161100872-7daa350808e3?w=800&q=80') center/cover no-repeat; }
 .column-img-3 { background: url('https://images.unsplash.com/photo-1562408590-e32931084e23?w=800&q=80') center/cover no-repeat; }
+.comments { margin: 8px 0 40px; }
+.comments .related-title { margin-bottom: 18px; }
