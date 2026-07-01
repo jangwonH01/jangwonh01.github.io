@@ -1270,3 +1270,4 @@ a.card { cursor: pointer; color: inherit; }
 .column-img-1 { background: url('https://images.unsplash.com/photo-1722487631997-cf1e0f92c2c4?w=800&q=80') center/cover no-repeat; }
 .post-disclaimer { margin-top: 28px; padding: 14px 18px; background: #f8f9fa; border-left: 3px solid #c9ccd1; border-radius: 8px; font-size: 13px; color: #777; line-height: 1.7; }
 .column-img-2 { background: url('https://images.unsplash.com/photo-1602161100872-7daa350808e3?w=800&q=80') center/cover no-repeat; }
+.column-img-3 { background: url('https://images.unsplash.com/photo-1562408590-e32931084e23?w=800&q=80') center/cover no-repeat; }
